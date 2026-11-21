@@ -1,0 +1,259 @@
+local nom_du_jeu = ''ahh''
+local version = "1.0"
+
+print("Lancemment de "..nom_du_jeu..",version "..version.."")
+
+local vie = 100
+local function degats(valeur)
+vie = vie - valeur
+print("Points de vie restants:"..vie.."")
+end 
+
+degats(40)
+degats(20)
+
+if vie > 0 then
+print("l'avion est encore en vol")
+else
+print("Crash")
+end
+
+if vie < 20 then
+print("Attention,vie faible")
+end
+
+for i = 3, 1, -1 do
+print(i)
+end
+
+print("Décollage")
+
+local mes_avions = {"Airbus", "Boeing", "Cessna"}
+print(mes_avions[2])
+
+table.insert(mes_avions, "Rafale")
+print(mes_avions[4])
+
+for i = 1, #mes_avions do 
+print(mes_avions[i])
+end
+
+for i = 1, 3 do
+degats(15)
+end
+
+if vie <= 0 then
+	print("Flotte détruite : Game Over")
+else
+	print("L'avion a survécu à la tempête !")
+end
+
+local reservoir = 0
+while reservoir < 50 do 
+reservoir = reservoir + 10
+print("Remplissage en cours,"..reservoir.."litres.")
+end
+
+local function pieds(metres)
+return metres * 3
+end
+
+local test = pieds(10)
+print(test)
+
+local function addition(a, b)
+return a + b
+end
+
+local calcul = addition(10, 5)
+
+print(""..calcul.."")
+
+local mon_avion = {
+	nom = "Airbus",
+	carburant = 100,
+	etat = "parking"
+	} -- Création de l'avion.
+	
+	print(mon_avion.carburant)
+	
+	mon_avion.etat = "en vol"
+	mon_avion.carburant = 90
+	
+	print(mon_avion.etat)
+	print(mon_avion.carburant)
+	
+	local function decollage(mon_avion) -- Fonction pour faire décoller l'avion.
+	mon_avion.etat = "en vol"
+	end
+	
+	decollage(mon_avion)
+	
+	print(mon_avion.etat)
+	
+	print("-------------------------")
+	print(string.upper("rapport de vol"))
+	local secousse = math.random(1, 30) -- Système de météo aléatoire.
+	print(string.upper("alerte meteo"))
+	print("Turbulances de niveau "..secousse.."") 
+	
+	if secousse > 20 then
+	print("Attachez vos ceintures")
+	end
+	
+	local alerte = ("turbulence detectee")
+	
+	local message_final = (string.upper(alerte))
+	
+	print(message_final)
+	
+	local panne_carburant = false
+	if not panne_carburant then
+	print("tous les systemes sont opérationnels")
+	end
+	
+	local vitesse = 400
+	local train_atterissage_sorti = false
+	
+	if vitesse > 350 or train_atterissage_sorti == false then
+	print("Attention : atterissage impossible")
+	end
+	
+	local vitesse_basse = true -- Phase d'atterrissage
+	local moteurs_eteins = true
+	
+	if vitesse_basse and moteurs_eteins then
+	print(string.upper("autorisation de parquage accordée"))
+	end
+	 local function calcul_distance(vitesse, temps)
+	vitesse = vitesse or 900
+	local result = vitesse * temps
+	print("Distance parcourue :"..result.."km")
+	return result
+	end
+	
+	calcul_distance(800, 2)
+	calcul_distance(nil, 3)
+	
+	local fiche_avion = {
+		model = "a320",
+		capacite = 190,
+		en_service = true,
+		vitesse_max = 850 
+		}
+		
+		print("Mise à jour : Vitesse max de " .. fiche_avion.vitesse_max .. " km/h.")
+		
+		print("--INSPECTION--")
+		
+		for cle, valeur in pairs(fiche_avion) do
+		print(cle .. " = " .. tostring(valeur))
+		end
+		
+local hangar = {
+	avion_1 = {
+		nom = "Transavia",
+		Destination = "CDG",
+		carburant = 5000
+	}, -- Virgule ici
+	avion_2 = {
+		nom = "Air Algerie",
+		Destination = "Lille-Lesquin",
+		carburant = 8000
+	}, -- Virgule obligatoire ici !
+	avion_3 = {
+		nom = "Cessna de test",
+		Destination = "Alger",
+		carburant = 2000,
+		vitesse = 200,
+		train_sorti = true -- Remis en minuscule pour la boucle
+	}
+} -- Une seule accolade ferme le hangar
+
+-- Affichage propre
+print("L'avion " .. hangar.avion_2.nom .. " va vers " .. hangar.avion_2.Destination .. " avec " .. hangar.avion_2.carburant .. " litres.")
+
+local function faire_le_plein(avion)
+avion.carburant = 10000
+end
+
+faire_le_plein(hangar.avion_1)
+
+print(hangar.avion_1.carburant)
+
+-- Test 1 : Nom ET Carburant
+if hangar.avion_2.nom == "Air Algerie" and hangar.avion_2.carburant > 5000 then
+	print("Check-list sécurité OK pour Air Algerie")
+end
+
+-- Test 2 : Destination A ou Destination B
+if hangar.avion_2.Destination == "Lille-Lesquin" or hangar.avion_2.Destination == "Alger" then
+	print("Destination autorisée")
+end
+
+print(string.upper("fin du rapport de vol"))
+
+for identifiant, avion in pairs(hangar) do
+	if avion.carburant < 6000 then
+		print("ALERTE : " .. avion.nom .. " doit ravitailler !")
+	else
+		print(avion.nom .. " : Carburant OK")
+	end
+end
+
+local function verifier_atterissage(avion)
+if avion.vitesse > 350 or avion.train_sorti == false then
+print("Attention : atterissage impossible")
+end
+end
+
+verifier_atterissage(hangar.avion_3)
+
+local function calculer_altitude()
+	local altitude = 5000
+	print("Altitude dans le cockpit : " .. altitude)
+	return altitude -- <- On "éjecte" la valeur de la fonction pour la rendre disponible !
+end
+
+-- Dehors, on récupère le cadeau de la fonction dans une variable locale au script général
+local altitude_recue = calculer_altitude()
+
+print("Altitude lue depuis la tour de contrôle : " .. altitude_recue)
+
+local function alerte_rouge()
+print("URGENCE : Alerte déclenchée !")
+end
+
+local function surveiller_moteur(temperature, fonction_a_lancer)
+if temperature > 100 then 
+fonction_a_lancer()
+end
+end
+
+surveiller_moteur(120, alerte_rouge)
+
+local mon_premier_avion = Avion.creer("Airbus A320", 5000)
+
+-- 1. On déclare d'abord le moule et le manuel commun
+Avion = {}
+Avion.__index = Avion
+
+-- 2. On crée la fonction usine (j'ai tout harmonisé avec "nouvel_avion")
+function Avion.creer(nom_modele, capacite_carburant)
+	local nouvel_avion = {}
+	
+	setmetatable(nouvel_avion, Avion) -- Connexion au manuel commun corrigée
+	
+	nouvel_avion.nom = nom_modele
+	nouvel_avion.carburant = capacite_carburant
+	nouvel_avion.altitude = 0
+	
+	return nouvel_avion
+end
+
+-- 3. Tout à la fin, on peut ENFIN utiliser l'usine en sécurité !
+local mon_premier_avion = Avion.creer("Airbus A320", 5000)
+
+print("Succès ! Avion créé : " .. mon_premier_avion.nom)
+
+mon_premier_avion:decoller()
